@@ -1,0 +1,160 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: "arial";
+    margin: 0pt;
+}
+
+h1, h2 {
+    margin: 8pt;
+    font-weight: normal;
+}
+
+h3, h4, h5 {
+    margin: 8pt;
+    font-weight: bold;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-size: 2.66 - (0.33 * $i) + "em";
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+hr {
+    border-color: inherit;
+    display: block;
+    height: 0;
+    border: 0;
+    margin: 0 0;
+    padding: 0;
+    margin-block: 0;
+}
+
+.smallhr {
+    color: #7F7F7F;
+    border-color: inherit;
+    display: block;
+    height: 0;
+    border: 0;
+    border-top: 1pt solid #7F7F7F;
+    margin: 0 0;
+    padding: 0;
+    margin-block: 0;
+}
+
+.navbar {
+    margin: 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+    list-style-type: none;
+}
+
+.navbar li a {
+    border: 2pt solid transparent;
+    color: #000000;
+    padding: 8pt 8pt;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12pt;
+    cursor: pointer;
+    font-family: pix5x5;
+}
+
+.navbar .active {
+    background-color: #000000;
+}
+
+.btn-group-rlmenu button {
+ /* this is used unless overridden by in-line styling */
+    border: 0.5pt solid #000000;
+    margin: 0pt;
+    color: #FFFFFF;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+}
+
+.btn-group-rlmenu a {
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 12pt;
+    margin: 8pt;
+}
+
+body {
+    background-color: #000000;
+    font-family: "arial";
+}
+
+th, td {
+    padding: 2pt;
+    text-align: left;
+    border-bottom: 1px solid #666666;
+    font-size: 8pt;
+    word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+    background-color: #404040;
+}
+
+li {
+    list-style-type: square;
+}
+
+section {
+    min-height: 200pt;
+    color: #FFFFFF;
+    background-color: #000000;
+    background-size: cover;
+    background-position-x: center;
+    padding: 2pt;
+}
+
+section h2 {
+    text-align: center;
+    color: #FFFFFF;
+    margin-block: 0;
+    padding: 6pt;
+}
+
+section h3 {
+    margin: 8pt;
+}
+
+section li {
+    color: #FFFFFF;
+    margin: 8pt;
+}
+
+section p {
+    color: #FFFFFF;
+    margin: 8pt;
+}

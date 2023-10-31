@@ -1,0 +1,21 @@
+#!/bin/bash
+# ToDoKiosk - CTCL 2023
+# File: runner_prod
+# Purpose: Linux/BSD script for running the application in development environments
+# Created: October 31, 2023
+# Modified: October 31, 2023
+
+find . -name "__pycache__" -exec rm -r "{}" 2> /dev/null \;
+
+function showerror {
+    echo "runner_dev ERROR: Management command \"$1\" failed!"
+    exit
+}
+
+if [[ $* == *--build* ]] || [[ $* == *--collect-build* ]]
+then
+    # Don't continue if something fails so the app does not try to run with missing files
+    python3 -B manage.py build || showerror "build"
+fi
+
+python3 -B manage.py runserver
