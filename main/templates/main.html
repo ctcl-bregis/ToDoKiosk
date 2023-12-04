@@ -1,9 +1,9 @@
 {% include "header.html" %}
-        <hr class="smallhr">
-{% for task in tasks %}
-        <h4>{{ task.summary }}</h4>
-        <p>Created: {{ task.created }} - Modified {{ task.modified }}</p>
-        <hr class="smallhr">
-{% endfor %}
+        <hr class="smallhr">{% for task in tasks %}
+        <section>
+            <h4>{{ task.summary }}</h4>
+            <p>Created: {{ task.created }} - Modified {{ task.modified }}</p>
+        </section>
+        <hr class="smallhr">{% endfor %}
 <hr>
 {% include "footer.html" %}

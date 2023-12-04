@@ -1,8 +1,0 @@
-{"config": {
-    "autoreload": "60",
-    "strftime": "%b %-d, %Y, %H:%M %Z",
-    "dav_url": "",
-    "cal_name": "To-Do",
-    "username": "",
-    "password": ""
-}}
