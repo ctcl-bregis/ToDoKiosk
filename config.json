@@ -5,6 +5,7 @@
     "cal_name": "To-Do",
     "username": "test",
     "password": "test",
+    "priority_sort": "descending",
     "colors": {
         "aliceblue": "#f0f8ff",
         "antiquewhite": "#faebd7",
@@ -154,5 +155,11 @@
         "whitesmoke": "#f5f5f5",
         "yellow": "#ffff00",
         "yellowgreen": "#9acd32"
+    },
+    "status": {
+        "CANCELLED": "Cancelled",
+        "COMPLETED": "Completed",
+        "IN-PROCESS": "In Process",
+        "NEEDS-ACTION": "Needs Action"
     }
 }}

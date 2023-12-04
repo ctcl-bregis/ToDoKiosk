@@ -6,12 +6,13 @@ body {
 }
 
 h1, h2 {
-    margin: 8pt;
+    margin: 6pt;
     font-weight: normal;
+    text-align: center;
 }
 
-h3, h4, h5 {
-    margin: 8pt;
+h3, h4, h5, h6 {
+    margin: 6pt;
     font-weight: bold;
 }
 
@@ -19,10 +20,6 @@ h3, h4, h5 {
     h#{$i} {
         font-size: 2.66 - (0.33 * $i) + "em";
     }
-}
-
-.center {
-    text-align: center;
 }
 
 hr {
@@ -45,38 +42,6 @@ hr {
     margin: 0 0;
     padding: 0;
     margin-block: 0;
-}
-
-.navbar {
-    margin: 0;
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.navbar li {
-    float: left;
-    list-style-type: none;
-}
-
-.navbar li a {
-    border: 2pt solid transparent;
-    color: #000000;
-    padding: 8pt 8pt;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12pt;
-    cursor: pointer;
-    font-family: pix5x5;
-}
-
-.navbar .active {
-    background-color: #000000;
 }
 
 .btn-group-rlmenu button {
@@ -131,12 +96,14 @@ li {
 
 section {
     min-height: 50pt;
-    max-height: 50pt;
     color: #FFFFFF;
-    background-color: #000000;
+    background-color: #202020;
     background-size: cover;
     background-position-x: center;
     padding: 2pt;
+    border-width: 3pt;
+    border-style: solid;
+    margin: 4pt;
 }
 
 section h2 {

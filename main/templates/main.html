@@ -1,9 +1,10 @@
 {% include "header.html" %}
-        <hr class="smallhr">{% for task in tasks %}
-        <section>
+        <h2>{{ cal_name }}</h2>
+{% for task in tasks %}
+        <section style="border-color: {{ task.color }}">
             <h4>{{ task.summary }}</h4>
-            <p>Created: {{ task.created }} - Modified {{ task.modified }}</p>
-        </section>
-        <hr class="smallhr">{% endfor %}
-<hr>
+            <h5>Priority: {{ task.priority }} - {{ task.status }}</h5>
+            <h6>Created: {{ task.created }} - Modified: {{ task.modified }}</h6>
+        </section>{% endfor %}
+        <hr>
 {% include "footer.html" %}

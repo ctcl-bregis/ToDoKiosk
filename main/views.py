@@ -44,18 +44,42 @@ def main(request):
             task = {}
             tcolor = str(vtask.get("COLOR"))
 
-            try:
-                task["color"] = tcolor
-            except KeyError as err:
-                printe(f"Color not found in config.json: {tcolor}")
+            if tcolor != "None":
+                try:
+                    task["color"] = page_cfg["colors"][tcolor]
+                except KeyError:
+                    printe(f"Color not found in config.json: {tcolor}")
+            else:
+                task["color"] = "#000000"
 
+            tstatus = str(vtask.get("STATUS"))
+            if tstatus != "None":
+                try:
+                    task["status"] = page_cfg["status"][tstatus]
+                except KeyError:
+                    printe(f"Status type not found in config.json: {tstatus}")
+            else:
+                task["status"] = "No Status"
+
+            task["priority"] = str(vtask.get("PRIORITY"))
             task["summary"] = str(vtask.get("SUMMARY"))
             task["created"] = vtask.get("CREATED").dt.strftime(strfstr)
             task["modified"] = vtask.get("LAST-MODIFIED").dt.strftime(strfstr)
 
-            
             tasks.append(task)
 
+    # Defaults to descending order if an invalid configuration option is given
+    if page_cfg["priority_sort"] == "descending":
+        tasks = sorted(tasks, key=lambda d: d["priority"], reverse = True)
+    elif page_cfg["priority_sort"] == "ascending":
+        tasks = sorted(tasks, key=lambda d: d["priority"], reverse = False)
+    elif page_cfg["priority_sort"] == "none":
+        pass
+    else:
+        tasks = sorted(tasks, key=lambda d: d["priority"], reverse = True)
+
+    context["cal_name"] = cal_name
     context["autoreload"] = autoreload
     context["tasks"] = tasks
+
     return HttpResponse(template.render(context, request))
