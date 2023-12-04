@@ -7,6 +7,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
+from app import __version__
 from app import lib
 from app.lib import printe
 from markdown import markdown
@@ -40,7 +41,6 @@ def main(request):
 
     for calendar in calendars:
         for vtask in calendar.walk("VTODO"):
-            print(vtask)
             task = {}
             tcolor = str(vtask.get("COLOR"))
 
@@ -81,5 +81,6 @@ def main(request):
     context["cal_name"] = cal_name
     context["autoreload"] = autoreload
     context["tasks"] = tasks
+    context["version"] = __version__
 
     return HttpResponse(template.render(context, request))
