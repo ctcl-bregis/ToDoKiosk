@@ -2,7 +2,7 @@
 
 Additions:
 - Error handling relating to the CalDAV server being unavailable
-- Priority number names
+- Priority number names and text color
 - Django 5 support
 - Horizontal rules added to the top and bottom of the page
 
