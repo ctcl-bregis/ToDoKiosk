@@ -1,10 +1,10 @@
 {"config": {
     "autoreload": "60",
     "strftime": "%b %-d, %Y, %H:%M %Z",
-    "dav_url": "http://192.168.0.226/radicale/test/",
-    "cal_name": "To-Do",
-    "username": "test",
-    "password": "test",
+    "dav_url": "",
+    "cal_name": "",
+    "username": "",
+    "password": "",
     "mode": "list",
     "priority_sort": "descending",
     "colors": {
