@@ -1,10 +1,13 @@
 {% include "header.html" %}
         <h2>{{ cal_name }}</h2>
-{% for task in tasks %}
+        <hr>
+        {% if tasks|length == 0 %}
+        <p style="text-align: center"><i>No items found</i></p>
+        {% else %}{% for task in tasks %}
         <section style="border-color: {{ task.color }}">
-            <h4>{{ task.summary }}</h4>
-            <h5>Priority: {{ task.priority }} - {{ task.status }}</h5>
-            <h6>Created: {{ task.created }} - Modified: {{ task.modified }}</h6>
-        </section>{% endfor %}
+            <p class="tasksummary">{{ task.summary }}</p>
+            <p class="status"><span style="color: {{ priority|get_item:task.priority|get_item:"color" }}">Priority: {{ priority|get_item:task.priority|get_item:"name" }}</span> - Status: {{ task.status }}</p>
+            <p class="created">Created: {{ task.created }} - Modified: {{ task.modified }}</p>
+        </section>{% endfor %}{% endif %}
         <hr>
 {% include "footer.html" %}

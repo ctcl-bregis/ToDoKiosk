@@ -1,3 +1,15 @@
+## 0.3.0 - January 2, 2024
+
+Additions:
+- Error handling relating to the CalDAV server being unavailable
+- Priority number names
+- Django 5 support
+- Horizontal rules added to the top and bottom of the page
+
+Changes:
+- Task color now defaults to white (#FFFFFF)
+- Text sizes no longer rely on header types
+
 ## 0.2.0 - December 4, 2023
 
 Additions:

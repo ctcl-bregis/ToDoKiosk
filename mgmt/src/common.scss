@@ -23,10 +23,11 @@ h3, h4, h5, h6 {
 }
 
 hr {
-    border-color: inherit;
+    border-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1pt;
     display: block;
     height: 0;
-    border: 0;
     margin: 0 0;
     padding: 0;
     margin-block: 0;
@@ -103,7 +104,7 @@ section {
     padding: 2pt;
     border-width: 3pt;
     border-style: solid;
-    margin: 4pt;
+    margin: 8pt;
 }
 
 section h2 {
@@ -125,4 +126,17 @@ section li {
 section p {
     color: #FFFFFF;
     margin: 8pt;
+}
+
+.tasksummary {
+    font-style: bold;
+    font-size: 16pt;
+}
+
+.status {
+    font-size: 12pt;
+}
+
+.created {
+    font-size: 12pt;
 }

@@ -1,9 +1,10 @@
-# ToDoKiosk - CTCL 2023
+# ToDoKiosk - CTCL 2023-2024
 # File: main/views.py
 # Purpose: Main app views
 # Created: October 31, 2023
-# Modified: December 4, 2023
+# Modified: January 2, 2024
 
+from django.template.defaulttags import register
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
@@ -27,8 +28,19 @@ password = page_cfg["password"]
 strfstr = page_cfg["strftime"]
 autoreload = page_cfg["autoreload"]
 
-client = caldav.DAVClient(dav_url, username = username, password = password)
-principal = client.principal()
+try:
+    client = caldav.DAVClient(dav_url, username = username, password = password)
+except Exception as err:
+    printe(err)
+
+try:
+    principal = client.principal()
+except Exception as err:
+    printe(err)
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
 
 def main(request):
     calendars = []
@@ -36,8 +48,11 @@ def main(request):
     template = loader.get_template("main.html")
     context = lib.mkcontext()
 
-    for todo in client.principal().calendar(cal_name).todos():
-        calendars.append(icalendar.Calendar.from_ical(todo.data))
+    try:
+        for todo in client.principal().calendar(cal_name).todos():
+            calendars.append(icalendar.Calendar.from_ical(todo.data))
+    except Exception as err:
+        printe(err)
 
     for calendar in calendars:
         for vtask in calendar.walk("VTODO"):
@@ -50,7 +65,7 @@ def main(request):
                 except KeyError:
                     printe(f"Color not found in config.json: {tcolor}")
             else:
-                task["color"] = "#000000"
+                task["color"] = "#ffffff"
 
             tstatus = str(vtask.get("STATUS"))
             if tstatus != "None":
@@ -79,8 +94,11 @@ def main(request):
         tasks = sorted(tasks, key=lambda d: d["priority"], reverse = True)
 
     context["cal_name"] = cal_name
+    context["title"] = cal_name
     context["autoreload"] = autoreload
     context["tasks"] = tasks
     context["version"] = __version__
+
+    context["priority"] = page_cfg["priority"]
 
     return HttpResponse(template.render(context, request))

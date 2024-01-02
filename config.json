@@ -5,6 +5,7 @@
     "cal_name": "To-Do",
     "username": "test",
     "password": "test",
+    "mode": "list",
     "priority_sort": "descending",
     "colors": {
         "aliceblue": "#f0f8ff",
@@ -161,5 +162,17 @@
         "COMPLETED": "Completed",
         "IN-PROCESS": "In Process",
         "NEEDS-ACTION": "Needs Action"
+    },
+    "priority": {
+        "0": {"name": "No Priority", "color": "#ffffff"},
+        "1": {"name": "Highest", "color": "#ff0000"},
+        "2": {"name": "Higher", "color": "#df2000"},
+        "3": {"name": "High", "color": "#bf4000"},
+        "4": {"name": "Medium High", "color": "#9f6000"},
+        "5": {"name": "Medium", "color": "#808000"},
+        "6": {"name": "Medium Low", "color": "#609f00"},
+        "7": {"name": "Low", "color": "#40bf00"},
+        "8": {"name": "Lower", "color": "#20df00"},
+        "9": {"name": "Lowest", "color": "#00ff00"}
     }
 }}
