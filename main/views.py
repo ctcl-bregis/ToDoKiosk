@@ -2,7 +2,7 @@
 # File: main/views.py
 # Purpose: Main app views
 # Created: October 31, 2023
-# Modified: January 2, 2024
+# Modified: January 5, 2024
 
 from django.template.defaulttags import register
 from django.http import HttpResponse, HttpResponseRedirect
@@ -14,11 +14,14 @@ from app.lib import printe
 from markdown import markdown
 import caldav
 import icalendar
+import os
 from datetime import date
 
-page_cfg = lib.loadjson("config.json")
-
-if page_cfg == None:
+if os.path.exists("config_private.json"):
+    page_cfg = lib.loadjson("config_private.json")
+elif os.path.exists("config.json"):
+    page_cfg = lib.loadjson("config.json")
+else:
     printe("Configuration file missing: config.json")
 
 dav_url = page_cfg["dav_url"]
@@ -83,15 +86,27 @@ def main(request):
 
             tasks.append(task)
 
+
+    # Get list of tasks without a priority and a list of tasks that do have a priority
+    taskswithpriority = []
+    taskswithoutpriority = []
+    for task in tasks:
+        if task["priority"] == "0":
+            taskswithoutpriority.append(task)
+        else:
+            taskswithpriority.append(task)
+
     # Defaults to descending order if an invalid configuration option is given
     if page_cfg["priority_sort"] == "descending":
-        tasks = sorted(tasks, key=lambda d: d["priority"], reverse = True)
+        taskswithpriority = sorted(taskswithpriority, key=lambda d: d["priority"], reverse = False)
     elif page_cfg["priority_sort"] == "ascending":
-        tasks = sorted(tasks, key=lambda d: d["priority"], reverse = False)
+        taskswithpriority = sorted(taskswithpriority, key=lambda d: d["priority"], reverse = True)
     elif page_cfg["priority_sort"] == "none":
         pass
     else:
-        tasks = sorted(tasks, key=lambda d: d["priority"], reverse = True)
+        taskswithpriority = sorted(taskswithpriority, key=lambda d: d["priority"], reverse = False)
+
+    tasks = taskswithpriority + taskswithoutpriority
 
     context["cal_name"] = cal_name
     context["title"] = cal_name

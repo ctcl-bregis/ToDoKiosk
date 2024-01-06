@@ -161,3 +161,6 @@ cython_debug/
 
 # CSS is built from SCSS
 *.css
+
+# File that contains config data used for development purposes and should not be pushed to GitHub
+config_private.json

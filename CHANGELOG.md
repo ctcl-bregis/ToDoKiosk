@@ -1,3 +1,15 @@
+## 0.3.1 - January 5, 2024
+
+Additions:
+- Added support for a "config_private.json" file that takes precedence over "config.json" for use in development purposes to store server credentials that should not be pushed to the repository. This does not change functionality in most cases.
+
+Changes:
+- Priority and status now display next to the title in order to fit more to-do items on screen
+- Fixed priority sort; items without priority are now last regardless of sorting mode
+- Improved readability of the "Priority" text colors
+- SCSS/CSS optimizations
+- Footer text size no longer relies on header type
+
 ## 0.3.0 - January 2, 2024
 
 Additions:
