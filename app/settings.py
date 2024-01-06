@@ -2,9 +2,10 @@
 # File: app/settings.py
 # Purpose: Global app settings
 # Created: October 31, 2023
-# Modified: October 31, 2023
+# Modified: January 6, 2024
 
 from pathlib import Path
+from os import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,10 +16,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ly-!1fzv&sji5gs5g34(451!61=^!u-h7^nks58s4ej$z2y0gj'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+try:
+    if environ["TDK_DEBUG"] == "False":
+        ALLOWED_HOSTS = ["127.0.0.1"]
+        DEBUG = False
+    else:
+        ALLOWED_HOSTS = ["*"]
+        DEBUG = True
+except KeyError:
+    ALLOWED_HOSTS = ["*"]
+    DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Application definition
 

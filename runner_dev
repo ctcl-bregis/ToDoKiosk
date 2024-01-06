@@ -3,9 +3,11 @@
 # File: runner_prod
 # Purpose: Linux/BSD script for running the application in development environments
 # Created: October 31, 2023
-# Modified: October 31, 2023
+# Modified: January 6, 2024
 
 find . -name "__pycache__" -exec rm -r "{}" 2> /dev/null \;
+
+export TDK_DEBUG="True"
 
 function showerror {
     echo "runner_dev ERROR: Management command \"$1\" failed!"
@@ -18,4 +20,4 @@ then
     python3 -B manage.py build || showerror "build"
 fi
 
-python3 -B manage.py runserver
+python3 -B manage.py runserver 0.0.0.0:8000

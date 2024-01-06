@@ -1,3 +1,13 @@
+## 0.3.2 - January 6, 2024
+
+Additions:
+- Debug mode activation and deactivation depending on what runner script is used
+
+Changes:
+- Removed even more unused CSS tags
+- Rearranged text on the sections again
+- Added horizontal rule between the title and details
+
 ## 0.3.1 - January 5, 2024
 
 Additions:

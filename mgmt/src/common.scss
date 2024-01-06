@@ -51,18 +51,7 @@ section {
     padding: 2pt;
     border-width: 3pt;
     border-style: solid;
-    margin: 8pt;
-}
-
-section h2 {
-    text-align: center;
-    color: #FFFFFF;
-    margin-block: 0;
-    padding: 6pt;
-}
-
-section h3 {
-    margin: 8pt;
+    margin: 6pt;
 }
 
 section li {
@@ -75,13 +64,22 @@ section p {
     margin: 8pt;
 }
 
+section hr {
+    border-color: #404040;
+    border-width: 1pt;
+    margin-right: 4pt;
+    margin-left: 4pt;
+}
+
 .tasksummary {
     font-style: bold;
     font-size: 16pt;
+    margin: 4pt;
 }
 
 .status {
     font-size: 12pt;
+    margin: 4pt;
 }
 
 .footertext {
